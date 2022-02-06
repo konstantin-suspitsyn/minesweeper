@@ -43,7 +43,6 @@ public class GameRules {
                 }
             }
         }
-        System.out.println(checked);
         return checked;
     }
 
@@ -75,7 +74,7 @@ public class GameRules {
                             new PathImagesForButtons(sectorField.getType(), sectorField.isActivated()).getIconPath()));
                 }
             }
-            // TODO: Say that gamer lost game
+            Window.changeTitle("YOU LOST");
         } else if (sector.getType() == 0) {
             // Empty field
             for (Integer i:
@@ -92,11 +91,17 @@ public class GameRules {
             currentSector.setActivated(true);
             currentSector.setIcon(new ImageIcon(String.valueOf(new PathImagesForButtons(currentSector.getType(), true).getIconPath())));
         }
-        System.out.println(unOpenedCells);
         if (unOpenedCells == Game.NUMBER_OF_MINES) {
-            System.out.println("WON");
+            Window.changeTitle("YOU WIN");
+            for (Sector sectorField:
+                    BombGrid.allCells) {
+                sectorField.setPressable(false);
+            }
 
         }
+
+        FlaggedBombsCount.changeScore(unOpenedCells);
+
     }
 
     public void rightClick(Sector sector) {
@@ -110,5 +115,6 @@ public class GameRules {
             }
         }
     }
+
 
 }

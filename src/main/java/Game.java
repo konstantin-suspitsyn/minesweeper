@@ -19,6 +19,9 @@ public class Game {
     // Total number of mines
     public static final int NUMBER_OF_MINES;
 
+    public static final int WIDTH_CORRECTION;
+    public static final int HEIGHT_CORRECTION;
+
     public GameRules gameRules = new GameRules();
 
 
@@ -28,14 +31,16 @@ public class Game {
         BOTTOM = 50;
         LEFT = 50;
         RIGHT = 50;
-        ROWS = 15;
+        ROWS = 10;
         COLUMNS = 10;
         NUMBER_OF_MINES = 10;
+        WIDTH_CORRECTION = 14;
+        HEIGHT_CORRECTION = 37;
     }
 
     public Game() {
-        int windowHeight = BOTTOM + TOP + ROWS * BUTTON_HEIGHT;
-        int windowWidth = LEFT + RIGHT + COLUMNS * BUTTON_HEIGHT;
+        int windowHeight = BOTTOM + TOP + ROWS * BUTTON_HEIGHT + HEIGHT_CORRECTION;
+        int windowWidth = LEFT + RIGHT + COLUMNS * BUTTON_HEIGHT + WIDTH_CORRECTION;
         Window run = new Window("Minesweeper", windowWidth, windowHeight, gameRules);
     }
 

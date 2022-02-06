@@ -28,39 +28,39 @@ public class BombGrid extends JPanel {
         int minIndex = 0;
         int maxIndex = Game.COLUMNS * Game.ROWS - 1;
 
-        if (i % Game.ROWS == 0) {
+        if (i % Game.COLUMNS == 0) {
             // If index of a cell is left
             // * * *
             // i * *
             // * * *
-            checkPositions.add(i - Game.ROWS);
-            checkPositions.add(i - Game.ROWS + 1);
+            checkPositions.add(i - Game.COLUMNS);
+            checkPositions.add(i - Game.COLUMNS + 1);
             checkPositions.add(i + 1);
-            checkPositions.add(i + Game.ROWS + 1);
-            checkPositions.add(i + Game.ROWS);
-        } else if ((i + 1) % Game.ROWS == 0) {
+            checkPositions.add(i + Game.COLUMNS + 1);
+            checkPositions.add(i + Game.COLUMNS);
+        } else if ((i + 1) % Game.COLUMNS == 0) {
             // If index of a cell is right
             //  * * *
             //  * * i
             //  * * *
-            checkPositions.add(i - Game.ROWS);
-            checkPositions.add(i - Game.ROWS - 1);
+            checkPositions.add(i - Game.COLUMNS);
+            checkPositions.add(i - Game.COLUMNS - 1);
             checkPositions.add(i - 1);
-            checkPositions.add(i + Game.ROWS - 1);
-            checkPositions.add(i + Game.ROWS);
+            checkPositions.add(i + Game.COLUMNS - 1);
+            checkPositions.add(i + Game.COLUMNS);
         } else {
             // If index of a cell in center
             // * * *
             // * i *
             // * * *
-            checkPositions.add(i - Game.ROWS);
-            checkPositions.add(i - Game.ROWS - 1);
+            checkPositions.add(i - Game.COLUMNS);
+            checkPositions.add(i - Game.COLUMNS - 1);
             checkPositions.add(i - 1);
-            checkPositions.add(i + Game.ROWS - 1);
-            checkPositions.add(i + Game.ROWS);
-            checkPositions.add(i - Game.ROWS + 1);
+            checkPositions.add(i + Game.COLUMNS - 1);
+            checkPositions.add(i + Game.COLUMNS);
+            checkPositions.add(i - Game.COLUMNS + 1);
             checkPositions.add(i + 1);
-            checkPositions.add(i + Game.ROWS + 1);
+            checkPositions.add(i + Game.COLUMNS + 1);
         }
 
         // Cut indexes out of boundaries
@@ -117,9 +117,12 @@ public class BombGrid extends JPanel {
                 Game.COLUMNS * Game.BUTTON_HEIGHT,
                 Game.ROWS * Game.BUTTON_HEIGHT));
         this.setLocation(Game.TOP, Game.LEFT);
-        this.setLayout(new GridLayout(Game.COLUMNS, Game.ROWS, 0, 0));
+        this.setLayout(new GridLayout(Game.ROWS, Game.COLUMNS, 0, 0));
 
     }
 
+    public static void clearBombsPositions() {
+        bombsPositions.clear();
+    }
 
 }

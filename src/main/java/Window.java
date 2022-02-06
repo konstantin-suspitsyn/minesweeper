@@ -14,39 +14,48 @@ public class Window {
         frame.setTitle(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // TODO: почистить срань
+        JPanel scorePanel = new FlaggedBombsCount();
+        JPanel restartPanel = new RestartGame();
 
-        JPanel redPanel = new JPanel();
-
-        redPanel.setLocation(Game.LEFT/2, Game.TOP/2);
-        redPanel.setSize(40, 40);
-
-        JPanel bluePanel = new JPanel();
-        bluePanel.setSize(Game.COLUMNS * Game.BUTTON_HEIGHT,Game.ROWS * Game.BUTTON_HEIGHT);
-        bluePanel.setPreferredSize(new Dimension(
+        JPanel gameFieldWrapper = new JPanel();
+        gameFieldWrapper.setSize(Game.COLUMNS * Game.BUTTON_HEIGHT,Game.ROWS * Game.BUTTON_HEIGHT);
+        gameFieldWrapper.setPreferredSize(new Dimension(
                 Game.COLUMNS * Game.BUTTON_HEIGHT,
                 Game.ROWS * Game.BUTTON_HEIGHT));
-        bluePanel.setLocation(Game.LEFT, Game.TOP);
-        bluePanel.setLayout(new GridBagLayout());
-        bluePanel.setVisible(true);
-        bluePanel.add(gameField);
+        gameFieldWrapper.setLocation(Game.LEFT, Game.TOP);
+        gameFieldWrapper.setLayout(new GridBagLayout());
+        gameFieldWrapper.setVisible(true);
+        gameFieldWrapper.add(gameField);
 
-        frame.add(bluePanel);
+        frame.add(gameFieldWrapper);
 
         frame.setLayout(null);
 
-        frame.add(bluePanel);
-        frame.add(redPanel);
+        frame.add(gameFieldWrapper);
+        frame.add(scorePanel);
+        frame.add(restartPanel);
 
 
         // Center window on screen
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(new Color(33,35,39));
 
+        frame.setResizable(false);
+
         frame.pack();
+
         frame.setVisible(true);
 
-        frame.setSize(width, height);
+        frame.setSize(new Dimension(width, height));
 
     }
+
+    public static void changeTitle(String message) {
+        frame.setTitle(message);
+    }
+
+    public static void stop() {
+        frame.dispose();
+    }
+
 }
