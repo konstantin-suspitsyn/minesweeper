@@ -12,14 +12,14 @@ public class PathImagesForButtons {
         //     0   - empty
         //     1-8 - number of mines around
 
-        this.iconPath = "design/-3.png";
+        this.iconPath = "src/main/resources/-3.png";
 
         if ((type <= 8) && (type >= -2) && discovered) {
-            this.iconPath = "design/" + type + ".png";
+            this.iconPath = "src/main/resources/" + type + ".png";
         } else if ((type == 9) && !discovered) {
-            this.iconPath = "design/hover.png";
+            this.iconPath = "src/main/resources/hover.png";
         } else if (type == 10) {
-            this.iconPath = "design/explosion.png";
+            this.iconPath = "src/main/resources/explosion.png";
         }
 
         // TODO: Throw exception on else
@@ -36,11 +36,11 @@ public class PathImagesForButtons {
         //     1-8 - number of mines around
 
         if (type == -1) {
-            this.iconPath = "design/" + type + ".png";
+            this.iconPath = "src/main/resources/" + type + ".png";
         } else if (type == 10) {
-            this.iconPath = "design/explosion.png";
+            this.iconPath = "src/main/resources/explosion.png";
         } else if (type == 11) {
-            this.iconPath = "design/wrong.png";
+            this.iconPath = "src/main/resources/wrong.png";
         }
 
         // TODO: Throw exception on else

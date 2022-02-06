@@ -44,8 +44,6 @@ public class Game {
         Window run = new Window("Minesweeper", windowWidth, windowHeight, gameRules);
     }
 
-    public static void main(String[] args) {
-        Game run = new Game();
-    }
+
 
 }

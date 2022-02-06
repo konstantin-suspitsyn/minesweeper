@@ -7,8 +7,8 @@ public class FlaggedBombsCount extends JPanel {
 
     public FlaggedBombsCount() {
 
-        JLabel flagsLabel = new JLabel(new ImageIcon("design/bomb_count_icon.png"));
-        leftFields = new JLabel(new ImageIcon("design/left_unopened_count_icon.png"));
+        JLabel flagsLabel = new JLabel(new ImageIcon("src/main/resources/bomb_count_icon.png"));
+        leftFields = new JLabel(new ImageIcon("src/main/resources/left_unopened_count_icon.png"));
 
         this.leftCountFields = Game.ROWS * Game.COLUMNS;
 

@@ -8,7 +8,7 @@ public class RestartGame extends JPanel {
 
     public RestartGame() {
 
-        JButton buttonRestart = new JButton(new ImageIcon("design/restart_button.png"));
+        JButton buttonRestart = new JButton(new ImageIcon("src/main/resources/restart_button.png"));
 
         setSize( 2 * Game.BUTTON_HEIGHT, 2 * Game.BUTTON_HEIGHT);
         setLocation(Game.LEFT + 1 + (Game.COLUMNS - 2) * Game.BUTTON_HEIGHT, Game.BUTTON_HEIGHT);
@@ -31,7 +31,7 @@ public class RestartGame extends JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
-                buttonRestart.setIcon(new ImageIcon("design/restart_button_bright.png"));
+                buttonRestart.setIcon(new ImageIcon("src/main/resources/restart_button_bright.png"));
 
             }
 
@@ -39,7 +39,7 @@ public class RestartGame extends JPanel {
             public void mouseExited(MouseEvent e) {
                 // If cell is not discovered, it will be highlighted on hover
                 super.mouseEntered(e);
-                buttonRestart.setIcon(new ImageIcon("design/restart_button.png"));
+                buttonRestart.setIcon(new ImageIcon("src/main/resources/restart_button.png"));
             }
 
             @Override
@@ -51,7 +51,6 @@ public class RestartGame extends JPanel {
                 Game run = new Game();
             }
         });
-
 
         add(buttonRestart);
 
